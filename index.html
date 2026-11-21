@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABI DONER — Меню</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+    <header class="header">
+        <div class="container header-top">
+            <div class="brand">
+                <div class="brand-name">ABI DONER</div>
+                <button id="addressBtn" class="address-pill" type="button">
+                    <span>📍</span>
+                    <span data-i18n="address">г. Манас, ул. Пушкина 27А</span>
+                </button>
+            </div>
+
+            <div class="top-controls">
+                <button id="langToggle" class="ctrl-btn" type="button">Кыргызча</button>
+                <button id="themeToggle" class="ctrl-btn" type="button">Бело-красный</button>
+            </div>
+        </div>
+
+        <div class="container search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Поиск по меню...">
+        </div>
+
+        <nav class="container categories-bar" id="categoriesContainer"></nav>
+    </header>
+
+    <main class="container main-content">
+        <div id="menuGrid" class="menu-grid"></div>
+    </main>
+
+    <!-- Плавающий виджет корзины -->
+    <button id="cartWidgetBtn" class="cart-fab" type="button">
+        <span class="cart-fab-left">
+            <span>🛒</span>
+            <span data-i18n="cart">Корзина</span>
+            <span id="cartCount" class="cart-count-pill">0</span>
+        </span>
+        <span id="cartTotalWidget" class="cart-fab-sum">0 с</span>
+    </button>
+
+    <!-- Модалка карт (2ГИС / Яндекс / Google) -->
+    <div id="mapModal" class="modal">
+        <div class="modal-box modal-box-sm">
+            <div class="modal-head">
+                <h3 data-i18n="openMapTitle">Открыть адрес</h3>
+                <button id="closeMapModalBtn" class="icon-close" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="map-address" data-i18n="address">г. Манас, ул. Пушкина 27А</p>
+                <div class="map-actions">
+                    <a id="link2gis" href="#" target="_blank" rel="noopener" class="map-option map-option-primary">2ГИС</a>
+                    <a id="linkYandex" href="#" target="_blank" rel="noopener" class="map-option">Яндекс Карты</a>
+                    <a id="linkGoogle" href="#" target="_blank" rel="noopener" class="map-option">Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка корзины и оформления заказа -->
+    <div id="cartModal" class="modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h3 data-i18n="yourOrder">Ваш заказ</h3>
+                <button id="closeModalBtn" class="icon-close" type="button">&times;</button>
+            </div>
+
+            <div id="cartItems" class="cart-list"></div>
+
+            <div class="order-fields">
+                <div class="field-block">
+                    <label data-i18n="deliveryMethod">Способ получения</label>
+                    <div class="seg-group">
+                        <button type="button" class="seg-btn active" data-type="delivery" data-i18n="delivery">Доставка</button>
+                        <button type="button" class="seg-btn" data-type="pickup" data-i18n="pickup">С собой</button>
+                    </div>
+                </div>
+
+                <div class="field-block" id="addressGroup">
+                    <label for="customerAddress" data-i18n="addressLabel">Адрес доставки</label>
+                    <input type="text" id="customerAddress" placeholder="Улица, дом, квартира">
+                </div>
+
+                <div class="field-block">
+                    <label for="customerName" data-i18n="nameLabel">Имя</label>
+                    <input type="text" id="customerName" placeholder="Ваше имя">
+                </div>
+
+                <div class="field-block">
+                    <label for="customerComment" data-i18n="commentLabel">Комментарий</label>
+                    <input type="text" id="customerComment" placeholder="Пожелания к заказу...">
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <div class="total-line">
+                    <span data-i18n="total">Итого</span>
+                    <span id="modalTotal" class="total-val">0 с</span>
+                </div>
+                <button id="sendWhatsappBtn" class="submit-wa-btn" type="button" data-i18n="orderWhatsapp">
+                    Отправить в WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
